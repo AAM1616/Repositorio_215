@@ -9,7 +9,7 @@ import HomeScreen from './HomeScreen';
 import LoginScreen from './LoginScreen';
 import Pantalla_Transacciones from './Pantalla_Transacciones.instructions';
 import StatusScreen from './StatusScreen';
-
+import GastosScreen from './GastosScreen';
 export default function MenuScreen() {
   const [screen, setScreen] = useState('menu');
 
@@ -26,7 +26,10 @@ export default function MenuScreen() {
       return <Pantalla_Transacciones />;
     case 'status':
       return <StatusScreen />;
-    default:
+      case 'gastos':
+      return <GastosScreen />;
+    
+      default:
       return (
         <ScrollView contentContainerStyle={styles.container}>
           <Text style={styles.title}>Menú de Pantallas</Text>
@@ -57,6 +60,9 @@ export default function MenuScreen() {
 
           <View style={styles.buttonContainer}>
             <Button title="Estado (Status)" onPress={() => setScreen('status')} />
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button title="Gastos" onPress={() => setScreen('gastos')} />
           </View>
         </ScrollView>
       );
